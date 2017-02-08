@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>一覧画面</title>
+    <link rel="stylesheet" href="../../../resources/css/style.css"
+          th:href="@{/resources/css/style.css}">
+</head>
+<body>
+<h1>社員一覧</h1>
+<a href="insertMain.html" th:href="@{insertMain}">新規追加へ</a>
+<form action="index.html" th:action="@{findByFirstName}">
+    名キーワード：<input type="text" name="firstName">
+    <input type="submit" value="検索">
+</form>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>名</th>
+        <th>姓</th>
+        <th>入社年月日</th>
+    </tr>
+    <tr th:each="employee : ${employees}" th:object="${employee}">
+        <td th:text="*{id}">1</td>
+        <td th:text="*{firstName}">Taro</td>
+        <td th:text="*{lastName}">Suzuki</td>
+        <td th:text="*{joinedDate}">2000-01-01</td>
+    </tr>
+    <!--/*-->
+    <tr>
+        <td>2</td>
+        <td>Jiro</td>
+        <td>Suzuki</td>
+        <td>2000-01-02</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Saburo</td>
+        <td>Suzuki</td>
+        <td>2000-01-03</td>
+    </tr>
+    <!--*/-->
+</table>
+</body>
+</html>
