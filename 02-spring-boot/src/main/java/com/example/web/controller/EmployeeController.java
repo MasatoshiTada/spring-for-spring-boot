@@ -35,7 +35,7 @@ public class EmployeeController {
 
     @GetMapping("/findByFirstName")
     public String findByFirstName(@RequestParam(value = "firstName", defaultValue = "") String firstName, Model model) {
-        List<Employee> employees = employeeService.findByFirstNameIgnoreCase(firstName);
+        List<Employee> employees = employeeService.findByFirstNameContainingIgnoreCase(firstName);
         model.addAttribute("employees", employees);
         return "employee/index";
     }

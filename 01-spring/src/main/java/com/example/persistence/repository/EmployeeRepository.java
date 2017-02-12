@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    List<Employee> findByFirstNameContaining(String firstName);
+    List<Employee> findByFirstNameContainingIgnoreCase(String firstName);
 }

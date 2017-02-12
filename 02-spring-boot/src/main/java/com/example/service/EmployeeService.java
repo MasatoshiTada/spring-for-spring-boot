@@ -8,7 +8,7 @@ public interface EmployeeService {
 
     List<Employee> findAll();
 
-    List<Employee> findByFirstNameIgnoreCase(String firstName);
+    List<Employee> findByFirstNameContainingIgnoreCase(String firstName);
 
     void insert(Employee employee);
 }

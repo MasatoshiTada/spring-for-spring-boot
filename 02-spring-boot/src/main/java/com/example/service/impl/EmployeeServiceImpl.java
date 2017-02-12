@@ -26,8 +26,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<Employee> findByFirstNameIgnoreCase(String firstName) {
-        return employeeRepository.findByFirstNameContaining(firstName);
+    public List<Employee> findByFirstNameContainingIgnoreCase(String firstName) {
+        return employeeRepository.findByFirstNameContainingIgnoreCase(firstName);
     }
 
     @Override
