@@ -14,9 +14,4 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
-    public Java8TimeDialect java8TimeDialect() {
-        return new Java8TimeDialect();
-    }
-
 }
