@@ -1,6 +1,5 @@
 package com.example.web.config;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -23,10 +22,9 @@ import java.nio.charset.StandardCharsets;
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Bean
-    public SpringResourceTemplateResolver templateResolver(ApplicationContext applicationContext) {
+    public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver =
                 new SpringResourceTemplateResolver();
-        templateResolver.setApplicationContext(applicationContext);
         templateResolver.setPrefix("/WEB-INF/templates/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
