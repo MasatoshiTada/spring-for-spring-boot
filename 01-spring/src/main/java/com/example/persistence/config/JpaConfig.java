@@ -28,6 +28,7 @@ public class JpaConfig {
         factoryBean.setPackagesToScan("com.example.persistence.entity", "org.springframework.data.jpa.convert.threeten");
         HashMap<String, Object> properties = new HashMap<>();
         properties.put("hibernate.physical_naming_strategy", new MyPhysicalNamingStrategy());
+        properties.put("hibernate.format_sql", true);
         factoryBean.setJpaPropertyMap(properties);
         return factoryBean;
     }
