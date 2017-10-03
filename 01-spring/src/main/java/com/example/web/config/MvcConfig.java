@@ -28,6 +28,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         templateResolver.setPrefix("/WEB-INF/templates/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
+        templateResolver.setCharacterEncoding(StandardCharsets.UTF_8.name());
         return templateResolver;
     }
 
