@@ -12,38 +12,31 @@ public class EmployeeForm {
 
     @NotBlank
     @Length(min = 1, max = 40)
-    private String firstName;
+    private final String firstName;
 
     @NotBlank
     @Length(min = 1, max = 40)
-    private String lastName;
+    private final String lastName;
 
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate joinedDate;
+    private final LocalDate joinedDate;
+
+    public EmployeeForm(String firstName, String lastName, @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate joinedDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.joinedDate = joinedDate;
+    }
 
     public String getFirstName() {
         return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public LocalDate getJoinedDate() {
         return joinedDate;
-    }
-
-    public void setJoinedDate(LocalDate joinedDate) {
-        this.joinedDate = joinedDate;
     }
 
     public Employee convertToEntity() {
@@ -52,5 +45,14 @@ public class EmployeeForm {
         employee.lastName = lastName;
         employee.joinedDate = joinedDate;
         return employee;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeForm{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", joinedDate=" + joinedDate +
+                '}';
     }
 }

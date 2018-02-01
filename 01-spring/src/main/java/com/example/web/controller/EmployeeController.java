@@ -21,11 +21,6 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @ModelAttribute
-    public EmployeeForm setUpForm() {
-        return new EmployeeForm();
-    }
-
     @GetMapping("/index")
     public String index(Model model) {
         List<Employee> employees = employeeService.findAll();
@@ -41,13 +36,16 @@ public class EmployeeController {
     }
 
     @GetMapping("/insertMain")
-    public String insertMain() {
+    public String insertMain(Model model) {
+        model.addAttribute("employeeForm", new EmployeeForm(null, null, null));
         return "employee/insertMain";
     }
 
     @PostMapping("/insertComplete")
     public String insertComplete(@Validated EmployeeForm employeeForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
+            // log EmployeeForm
+            System.out.println(employeeForm);
             return "employee/insertMain";
         }
         Employee employee = employeeForm.convertToEntity();
