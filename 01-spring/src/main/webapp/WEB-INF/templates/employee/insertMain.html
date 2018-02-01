@@ -2,42 +2,42 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>新規追加画面</title>
+    <title>Add new employee</title>
     <link rel="stylesheet" href="../../../resources/css/style.css"
           th:href="@{/resources/css/style.css}">
 </head>
 <body>
-<h1>新規追加</h1>
-<a href="index.html" th:href="@{index}">社員一覧へ</a>
+<h1>Add new employee</h1>
+<a href="index.html" th:href="@{index}">Go to employee list</a>
 <form method="post" action="index.html" th:action="@{insertComplete}" th:object="${employeeForm}">
     <table border="1">
         <tr>
             <th>ID</th>
-            <td>(自動採番されます)</td>
+            <td>(Auto generated)</td>
         </tr>
         <tr>
-            <th>名</th>
+            <th>First name</th>
             <td>
                 <input type="text" name="firstName" th:field="*{firstName}">
                 <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error"></div>
             </td>
         </tr>
         <tr>
-            <th>姓</th>
+            <th>Last name</th>
             <td>
                 <input type="text" name="lastName" th:field="*{lastName}">
                 <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></div>
             </td>
         </tr>
         <tr>
-            <th>入社年月日</th>
+            <th>Joined date</th>
             <td>
                 <input type="text" name="joinedDate" th:field="*{joinedDate}">
                 <div th:if="${#fields.hasErrors('joinedDate')}" th:errors="*{joinedDate}" class="error"></div>
             </td>
         </tr>
     </table>
-    <input type="submit" value="登録">
+    <input type="submit" value="Submit">
 </form>
 </body>
 </html>

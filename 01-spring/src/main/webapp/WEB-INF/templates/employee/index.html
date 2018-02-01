@@ -2,23 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>一覧画面</title>
+    <title>Employee List</title>
     <link rel="stylesheet" href="../../../resources/css/style.css"
           th:href="@{/resources/css/style.css}">
 </head>
 <body>
-<h1>社員一覧</h1>
-<a href="insertMain.html" th:href="@{insertMain}">新規追加へ</a>
+<h1>Employee List</h1>
+<a href="insertMain.html" th:href="@{insertMain}">Add new employee</a>
 <form action="index.html" th:action="@{findByFirstName}">
-    名キーワード：<input type="text" name="firstName">
-    <input type="submit" value="検索">
+    Keyword of first name: <input type="text" name="firstName">
+    <input type="submit" value="Search">
 </form>
 <table border="1">
     <tr>
         <th>ID</th>
-        <th>名</th>
-        <th>姓</th>
-        <th>入社年月日</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Joined date</th>
     </tr>
     <tr th:each="employee : ${employees}" th:object="${employee}">
         <td th:text="*{id}">1</td>
